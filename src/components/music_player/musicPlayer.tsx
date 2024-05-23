@@ -1,7 +1,7 @@
 "use client";
 import { globalStateAtom } from "@/context/atoms";
 import { useAtom } from "jotai";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactJkMusicPlayer, {
   ReactJkMusicPlayerAudioListProps,
   ReactJkMusicPlayerProps,
@@ -10,14 +10,26 @@ import "react-jinke-music-player/assets/index.css";
 
 const MusicPlayer: React.FC = () => {
   const [state, setState] = useAtom(globalStateAtom);
+  const [currentLyric, setCurrentLyric] = useState<string>("");
+  const [playerKey, setPlayerKey] = useState<number>(0); // Key to force re-initialization
+
   const transformedSongsList = state.searchedSongs.map((song: any) => {
     return {
       name: song.name,
       singer: song.artist,
       cover: song.image,
       musicSrc: song.preview_url,
+      lyric: song.lyrics,
     };
   }) as ReactJkMusicPlayerAudioListProps[];
+  console.log("transformedSongsList", transformedSongsList);
+
+  // useEffect(() => {
+  //   if (state.searchedSongs.length > 0 && state.currentSong >= 0) {
+  //     const currentSong = state.searchedSongs[state.currentSong];
+  //     setCurrentLyric(currentSong.lyrics || "No lyrics available");
+  //   }
+  // }, [state.currentSong, state.searchedSongs]);
 
   const options: ReactJkMusicPlayerProps = {
     audioLists: transformedSongsList,
@@ -25,16 +37,21 @@ const MusicPlayer: React.FC = () => {
     theme: "dark",
     bounds: "body",
     mode: "full", // 'mini' or 'full'
-    autoPlay: true,
+    autoPlay: false,
     remember: true,
     showMiniModeCover: true,
     showDownload: false,
+    showMediaSession: true,
     showPlay: true,
     showReload: true,
     showPlayMode: true,
     showThemeSwitch: true,
-    showLyric: false,
-    showDestroy: true,
+    showLyric: true,
+    lyricClassName: "lyric",
+    spaceBar: true,
+    showDestroy: false,
+    loadAudioErrorPlayNext: true,
+    responsive: true,
     extendsContent: null,
     onAudioPlay: (audioInfo) => {
       console.log("audio playing", audioInfo);
@@ -51,9 +68,23 @@ const MusicPlayer: React.FC = () => {
     onThemeChange: (theme) => {
       console.log("theme change:", theme);
     },
+    // onDestroyed: async (currentPlayId, audioLists, audioInfo) => {
+    //   console.log("player destroyed");
+    //   setPlayerKey((prevKey) => prevKey + 1); // Increment key to force re-initialization
+    // },
   };
 
-  return state.searchedSongs.length > 0 && <ReactJkMusicPlayer {...options} />;
+  return (
+    <div>
+      {/* <div className="lyrics-container">
+        <h2>Lyrics</h2>
+        <pre>{currentLyric}</pre>
+      </div> */}
+      {state.searchedSongs.length > 0 && (
+        <ReactJkMusicPlayer key={playerKey} {...options} />
+      )}
+    </div>
+  );
 };
 
 export default MusicPlayer;

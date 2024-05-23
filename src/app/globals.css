@@ -12,3 +12,26 @@ textarea:focus {
   box-shadow: none !important;
   border: none !important;
 }
+
+.react-jinke-music-player-mobile-toggle.text-center.group {
+  display: flex;
+  margin: auto;
+}
+
+.react-jinke-music-player-mobile-operation .items .item {
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.react-jinke-music-player.react-draggable {
+  top: 15% !important;
+  left: auto !important;
+  right: 0 !important;
+}
+
+span.audio-lists-panel-header-delete-btn {
+  display: none;
+}

@@ -26,7 +26,8 @@
     "react-jinke-music-player": "^4.24.2",
     "react-toastify": "^10.0.5",
     "tailwind-merge": "^2.2.2",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "xmldom": "^0.6.0"
   },
   "devDependencies": {
     "@types/node": "^20",

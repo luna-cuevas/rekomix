@@ -17,24 +17,24 @@ const SongList = (props: Props) => {
   }, [state.searchedSongs]);
 
   return (
-    <div className="flex flex-col justify-center w-full overflow-y-scroll h-auto my-2  ">
+    <div className="flex rounded-xl flex-col justify-center w-full overflow-y-scroll h-auto my-2  ">
       {isLoaded &&
         state.searchedSongs.map((song: any, index: number) => {
           return (
             <div
               key={index}
-              className="bg-white flex gap-4 dark:bg-gray-800 py-2 h-full shadow-lg rounded-lg w-full  px-4 border-b-2 border-white">
+              className="bg-white flex gap-4 dark:bg-gray-800 py-2 h-full shadow-lg rounded-lg w-full  px-4 border-b-2 dark:border-white">
               <img
                 src={song.image}
                 alt=""
-                className="rounded-t-lg max-w-[50px] h-auto"
+                className="rounded-t-lg max-w-[50px] h-auto object-cover"
               />
               <div className=" w-full  m-auto flex flex-col justify-center">
                 <h2 className="text-xl w-fit font-semibold dark:text-white">
-                  {song.name}
+                  {song.name.slice(0, 30)}
                 </h2>
                 <p className="text-sm w-fit font-light dark:text-gray-200">
-                  {song.name}
+                  {song.name.slice(0, 30)}
                 </p>
                 {/* <p className="text-sm font-light dark:text-gray-200">
                     {song.name}

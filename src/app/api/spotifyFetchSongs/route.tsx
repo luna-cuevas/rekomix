@@ -33,7 +33,6 @@ const searchSongsOnSpotify = async (accessToken: any, query: any) => {
   );
 
   const data = await response.json();
-  console.log("data", data.tracks.items);
   return data.tracks.items.map((track: any) => ({
     name: track.name,
     artist: track.artists.map((artist: any) => artist.name).join(", "),

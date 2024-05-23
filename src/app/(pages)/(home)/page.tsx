@@ -8,8 +8,8 @@ export default function Home() {
         Hero Section displaying an input to search songs on Spotify
         On the right side, there will be an image or video asset
       */}
-      <div className="h-[calc(100vh-60px)] bg-black flex">
-        <div className="h-1/2 flex w-1/2 m-auto max-w-[500px]">
+      <div className="h-[calc(100vh-60px)] bg-gray-300 dark:bg-gray-600 flex">
+        <div className="h-1/2 flex px-4 md:w-1/2 m-auto max-w-[500px]">
           <div className="m-auto w-full h-full flex-col flex">
             <SongsFetchForm />
             <div className="overflow-y-scroll flex-1 my-2">
@@ -19,7 +19,7 @@ export default function Home() {
             {/* List of songs  */}
           </div>
         </div>
-        <div className="w-1/2 h-1/2 m-auto"></div>
+        {/* <div className="w-1/2 h-1/2 m-auto"></div> */}
       </div>
     </main>
   );
