@@ -2,32 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+[type="text"]:focus,
+button:focus,
+select:focus,
+textarea:focus {
+  outline: none !important;
+  outline-offset: 0 !important;
+  outline-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.react-jinke-music-player-mobile-toggle.text-center.group {
+  display: flex;
+  margin: auto;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.react-jinke-music-player-mobile-operation .items .item {
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.react-jinke-music-player.react-draggable {
+  top: 15% !important;
+  left: auto !important;
+  right: 0 !important;
+}
+
+span.audio-lists-panel-header-delete-btn {
+  display: none;
 }

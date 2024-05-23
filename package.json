@@ -9,9 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-navigation-menu": "^1.1.4",
+    "@supabase/auth-ui-react": "^0.4.7",
+    "@supabase/auth-ui-shared": "^0.1.8",
+    "@supabase/supabase-js": "^2.42.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "flowbite": "^2.3.0",
+    "flowbite-react": "^0.8.0",
+    "jotai": "^2.8.0",
+    "lucide-react": "^0.367.0",
     "next": "14.1.4",
+    "openai": "^4.47.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-jinke-music-player": "^4.24.2",
+    "react-toastify": "^10.0.5",
+    "tailwind-merge": "^2.2.2",
+    "tailwindcss-animate": "^1.0.7",
+    "xmldom": "^0.6.0"
   },
   "devDependencies": {
     "@types/node": "^20",
