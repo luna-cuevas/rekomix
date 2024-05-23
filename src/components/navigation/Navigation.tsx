@@ -26,11 +26,12 @@ const Navigation = (props: Props) => {
     try {
       await supabase.auth.signOut();
 
-      setState({
+      setState((prev) => ({
+        ...prev,
         session: null,
         user: null,
         showMobileMenu: false,
-      });
+      }));
 
       router.push("/");
     } catch (error) {
